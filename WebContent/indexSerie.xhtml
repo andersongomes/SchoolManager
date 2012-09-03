@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>School Manager</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" />
+		<h:outputStylesheet library="css" name="bootstrap-responsive.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+		<link rel="shortcut icon" href="${ctx}/resources/images/favicon.ico" />
+    </h:head>
+    <h:body>
+    	<div class="all">
+    		<h1 class="titulo">Listagem de Séries</h1>
+	
+        	<p:dataTable id="dataTable" var="serie" value="#{serieController.listarSeries}" paginator="true" rows="5">
+        		<p:column>
+        			<f:facet name="header">
+                    <h:outputText value="Número"/>
+              			</f:facet>
+                	<h:outputText value="#{serie.nome}" />
+        		</p:column>
+        		
+        		<p:column>
+        			<f:facet name="header">
+                    <h:outputText value="Instituição"/>
+              			</f:facet>
+                	<h:outputText value="#{serie.instituicao.nome}" />
+        		</p:column>
+        		
+        		<p:column style="width: 5%;">
+        			<f:facet name="header">
+	                	<div style="text-align: center;">
+		                    <h:outputText value="Alterar"/>
+						</div>
+	                </f:facet>
+	                <h:form>
+	                    <h:commandLink action="#{serieController.prepararAlterarSerie}">
+	                    	<h:graphicImage styleClass="linkAction" alt="Editar" url="/resources/images/edit.png"></h:graphicImage>
+	                    </h:commandLink>
+	                </h:form>
+        		</p:column>
+        		<p:column style="width: 5%;">
+        			<f:facet name="header">
+	                    <div style="text-align: center;">
+	                    	<h:outputText value="Excluir"/>
+	                    </div>
+	                </f:facet>
+	                <h:form>
+	                	<h:commandLink action="#{serieController.excluirSerie}">
+	                		<h:graphicImage styleClass="linkAction" alt="Excluir" url="/resources/images/delete.png"></h:graphicImage>
+	                	</h:commandLink>
+	                </h:form>
+        		</p:column>
+        		
+        	</p:dataTable>
+        	
+        	<br/>
+        	
+        	<h:form styleClass="button">
+	            <h:commandLink styleClass="btn btn-success" value="Novo(a) Professor(a)" action="#{serieController.prepararAdicionarSerie}"/>
+	        </h:form>
+		</div>
+    </h:body>
+</html>

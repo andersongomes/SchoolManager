@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='iso-8859-1' ?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>School Manager</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" />
+		<h:outputStylesheet library="css" name="bootstrap-responsive.css" />
+		<h:outputStylesheet library="css" name="style.css" />
+		<link rel="shortcut icon" href="${ctx}/resources/images/favicon.ico" />
+    </h:head>
+    <h:body>
+    	<div class="all">
+	        <h1 class="titulo">Adicionar Instituicao</h1>
+	        <h:form styleClass="formulario">
+	            <p><span>Nome: </span><h:inputText value="#{instituicaoController.instituicao.nome}"/></p>
+	           
+	            <h:commandButton styleClass="botao btn btn-success" action="#{instituicaoController.adicionarInstituicao}" value="Inserir Nova Instituição"/>
+	            <br/>
+	            <h:commandLink styleClass="btn btn-success"  action="indexInstituicao" value="Voltar"/>
+	        </h:form>
+	      
+		</div>
+    </h:body>
+</html>
